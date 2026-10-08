@@ -1,0 +1,43 @@
+﻿    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
+    namespace Program6
+    {
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] strikePowerLog = { 28, 35, 22, 40, 33 };
+
+            Console.WriteLine("--- Журнал богатырских ударов (5 раундов) ---");
+            for (int i = 0; i < strikePowerLog.Length; i++)
+            {
+                Console.WriteLine($"Раунд {i + 1}: {strikePowerLog[i]} силы удара");
+            }
+
+            // Ручной подсчёт суммарного урона (без LINQ)
+            int totalDamage = 0;
+            for (int i = 0; i < strikePowerLog.Length; i++)
+            {
+                totalDamage += strikePowerLog[i];
+            }
+            Console.WriteLine($"\nСуммарный урон за сечу: {totalDamage}");
+
+            // Поиск максимального удара
+            int maxStrike = strikePowerLog[0];
+            for (int i = 1; i < strikePowerLog.Length; i++)
+            {
+                if (strikePowerLog[i] > maxStrike)
+                {
+                    maxStrike = strikePowerLog[i];
+                }
+            }
+            Console.WriteLine($"Самый мощный удар: {maxStrike} силы");
+
+            Console.ReadKey(); // Чтобы консоль не закрывалась сразу при запуске
+        }
+    }
+    }
